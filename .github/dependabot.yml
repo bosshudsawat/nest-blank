@@ -1,0 +1,15 @@
+version: 2
+updates:
+  - package-ecosystem: "npm" # หรือใช้ "yarn" ถ้าคุณใช้ Yarn
+    directory: "/" # ตำแหน่งของโปรเจกต์ (ใช้ "/" ถ้าอยู่ที่ root)
+    schedule:
+      interval: "daily" # ตรวจสอบการอัปเดตทุกวัน (ตัวเลือก: daily, weekly, monthly)
+    open-pull-requests-limit: 5 # จำกัดจำนวน PR ที่เปิดอยู่ไม่ให้เยอะเกินไป
+    versioning-strategy: "increase" # อัปเดต dependencies ให้เป็นเวอร์ชันใหม่ล่าสุดที่รองรับ
+    assignees:
+      - "your-github-username" # ระบุชื่อ GitHub ของคุณ (หรือทีมงาน) ให้รับผิดชอบ PR
+    labels:
+      - "dependencies" # เพิ่ม label เพื่อจัดหมวดหมู่ PR
+    ignore:
+      - dependency-name: "@nestjs/common"
+        versions: ["^10.0.0"] # ถ้าต้องการข้ามบางเวอร์ชัน สามารถกำหนดที่นี่ได้
